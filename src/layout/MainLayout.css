@@ -1,0 +1,41 @@
+.wrapper-base {
+	max-width: 768px;
+	margin: 0 auto;
+}
+
+.ant-layout-header.header {
+	display: flex;
+	align-items: center;
+	/* background-color: #fff; */
+}
+
+.ant-layout-header .header-name {
+	margin: 0;
+}
+
+.ant-layout-header.header > * {
+	color: #fff;
+}
+
+.ant-layout-header .trigger {
+	font-size: 24px;
+	line-height: 64px;
+	padding-right: 24px;
+	cursor: pointer;
+	transition: color 0.3s;
+}
+
+.main-content {
+	padding: 20px;
+	/* height: 1px; */
+	min-height: 400px;
+}
+
+.site-layout-background {
+	background: #fff;
+}
+
+.logo {
+	font-size: 24px;
+	padding-right: 25px;
+}

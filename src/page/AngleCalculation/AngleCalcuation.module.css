@@ -1,0 +1,31 @@
+.baseContent {
+	padding-top: 30px;
+}
+
+.imageWrapper {
+	position: relative;
+	max-width: 260px;
+	padding-right: 20px;
+}
+
+.input {
+	width: 150px;
+}
+
+.inputWrapp {
+	display: flex;
+	align-items: center;
+	/* justify-content: space-between; */
+	margin-bottom: 10px;
+}
+
+.inputWrapp span {
+	margin-right: 5px;
+	flex: 0 0 20px;
+}
+
+@media (max-width: 576px) {
+	.baseContent {
+		padding-top: 0;
+	}
+}

@@ -1,0 +1,41 @@
+.wrapper-content {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.wrapper-content > *:nth-child(1) {
+	flex: 0 0 auto;
+}
+
+.wrapper-content > *:nth-child(n + 2) {
+	flex: auto;
+}
+
+/* @media (max-width: 576px) {
+	.wrapper-content > *:nth-child(n + 2) {
+		margin-bottom: 20px;
+	}
+} */
+
+.dimension {
+	position: absolute;
+}
+.dimension-d1 {
+	top: -25px;
+	left: 25%;
+}
+.dimension-d2 {
+	bottom: 40px;
+	right: -10px;
+}
+.dimension-angle {
+	bottom: 100px;
+	right: 34px;
+	transform: rotate(-20deg);
+}
+
+.dimension-bevel {
+	top: -25px;
+	right: 25%;
+}
