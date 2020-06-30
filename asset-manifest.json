@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/cnc-assistent/static/css/main.6362f2df.chunk.css",
+    "main.js": "/cnc-assistent/static/js/main.28e7e888.chunk.js",
+    "main.js.map": "/cnc-assistent/static/js/main.28e7e888.chunk.js.map",
+    "runtime-main.js": "/cnc-assistent/static/js/runtime-main.01758b1d.js",
+    "runtime-main.js.map": "/cnc-assistent/static/js/runtime-main.01758b1d.js.map",
+    "static/css/2.42ec2a3e.chunk.css": "/cnc-assistent/static/css/2.42ec2a3e.chunk.css",
+    "static/js/2.69eca234.chunk.js": "/cnc-assistent/static/js/2.69eca234.chunk.js",
+    "static/js/2.69eca234.chunk.js.map": "/cnc-assistent/static/js/2.69eca234.chunk.js.map",
+    "index.html": "/cnc-assistent/index.html",
+    "precache-manifest.e2e907e43974980f7f76ab1423a99424.js": "/cnc-assistent/precache-manifest.e2e907e43974980f7f76ab1423a99424.js",
+    "service-worker.js": "/cnc-assistent/service-worker.js",
+    "static/css/2.42ec2a3e.chunk.css.map": "/cnc-assistent/static/css/2.42ec2a3e.chunk.css.map",
+    "static/css/main.6362f2df.chunk.css.map": "/cnc-assistent/static/css/main.6362f2df.chunk.css.map",
+    "static/js/2.69eca234.chunk.js.LICENSE.txt": "/cnc-assistent/static/js/2.69eca234.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.01758b1d.js",
+    "static/css/2.42ec2a3e.chunk.css",
+    "static/js/2.69eca234.chunk.js",
+    "static/css/main.6362f2df.chunk.css",
+    "static/js/main.28e7e888.chunk.js"
+  ]
+}
