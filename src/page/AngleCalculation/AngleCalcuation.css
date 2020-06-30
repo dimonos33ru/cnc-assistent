@@ -39,3 +39,6 @@
 	top: -25px;
 	right: 25%;
 }
+.dimension-bevel mark {
+	background: lime;
+}

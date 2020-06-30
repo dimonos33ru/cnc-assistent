@@ -6,11 +6,23 @@ import { Typography, Row, InputNumber, Col, Button, Divider } from 'antd';
 
 const { Text, Title } = Typography;
 
+const handleSelect = (e) => {
+	e.target.select();
+};
+
 const InputDataAngle = (props) => {
 	return (
 		<div className={styles.inputWrapp}>
 			<Text strong>{props.label}:</Text>
-			<InputNumber value={props.value} onChange={props.changeValue} min={0} type="number" className={styles.input} />
+			<InputNumber
+				value={props.value}
+				onChange={props.changeValue}
+				onClick={handleSelect}
+				formatter={(value) => `${value}${props.format}`}
+				parser={(value) => value.replace(`${props.format}`, '')}
+				min={0}
+				className={styles.input}
+			/>
 		</div>
 	);
 };
@@ -50,7 +62,7 @@ function AngleCalculation() {
 		<div className="wrapper-content">
 			<Title level={3}>Введите параметры детали</Title>
 
-			<Row align="middle" className={styles.base}>
+			<Row align="middle" className={styles.baseContent}>
 				<Col sm={{ span: 15, order: 1 }} xs={{ span: 24, order: 2 }}>
 					<div className={styles.imageWrapper}>
 						<img src={fragmentImg} alt="эскиз" />
@@ -69,8 +81,8 @@ function AngleCalculation() {
 					</div>
 				</Col>
 				<Col sm={{ span: 9, order: 2 }} xs={{ span: 24, order: 1 }} style={{ marginBottom: '25px' }}>
-					<InputDataAngle label="d1" format="мм" value={diametrOne} changeValue={(e) => setDiametrOne(e)} />
-					<InputDataAngle label="d2" format="мм" value={diametrTwo} changeValue={(e) => setDiametrTwo(e)} />
+					<InputDataAngle label="d1" format=" мм" value={diametrOne} changeValue={(e) => setDiametrOne(e)} />
+					<InputDataAngle label="d2" format=" мм" value={diametrTwo} changeValue={(e) => setDiametrTwo(e)} />
 					<InputDataAngle label="α" format="°" value={angle} changeValue={(e) => setAngle(e)} />
 				</Col>
 			</Row>
