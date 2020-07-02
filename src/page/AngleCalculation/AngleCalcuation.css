@@ -1,4 +1,4 @@
-.wrapper-content {
+/* .wrapper-content {
 	min-height: 100%;
 	display: flex;
 	flex-direction: column;
@@ -10,12 +10,6 @@
 
 .wrapper-content > *:nth-child(n + 2) {
 	flex: auto;
-}
-
-/* @media (max-width: 576px) {
-	.wrapper-content > *:nth-child(n + 2) {
-		margin-bottom: 20px;
-	}
 } */
 
 .dimension {
