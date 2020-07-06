@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './AngleCalcuation.css';
 import styles from './AngleCalcuation.module.css';
 import fragmentImg from './fragment.png';
 import { Typography, Row, InputNumber, Col, Button, Divider } from 'antd';
 
-const { Text, Title } = Typography;
+import { useStores } from 'lib/hooks';
+import { withStore } from 'lib/hoc';
 
-const handleSelect = (e) => {
-	e.target.select();
-};
+const { Text, Title } = Typography;
 
 const InputDataAngle = (props) => {
 	return (
@@ -17,7 +16,7 @@ const InputDataAngle = (props) => {
 			<InputNumber
 				value={props.value}
 				onChange={props.changeValue}
-				onClick={handleSelect}
+				onClick={(e) => e.target.select()}
 				formatter={(value) => `${value}${props.format}`}
 				parser={(value) => value.replace(`${props.format}`, '')}
 				min={0}
@@ -28,35 +27,23 @@ const InputDataAngle = (props) => {
 };
 
 function AngleCalculation() {
-	const initialState = 0;
-	const [diametrOne, setDiametrOne] = useState(initialState);
-	const [diametrTwo, setDiametrTwo] = useState(initialState);
-	const [angle, setAngle] = useState(initialState);
+	const { bevelStore } = useStores();
+	const {
+		inputsData: { outsideD, innersideD, angle },
+	} = bevelStore;
 
-	const [isVisible, setIsVisible] = useState(false);
-
-	const [bevel, setBevel] = useState(initialState);
-
-	/* Рассчет фаски */
-	function calculateBevel(d1, d2, a) {
-		const abs = Math.abs(d1 - d2) / 2;
-		const deg = (a * Math.PI) / 180; // радианы в градусы
-		const interResult = abs * Math.tan(deg);
-		const result = Math.round(interResult * 10) / 10; // округление до десятой
-		return result;
-	}
-
-	const handleButtonBevel = () => {
-		setBevel(calculateBevel(diametrOne, diametrTwo, angle));
-		setIsVisible(true);
-	};
-
-	const handleButtonClear = () => {
-		[setDiametrOne, setDiametrTwo, setAngle].forEach((setFunc) => {
-			setFunc(initialState);
-		});
-		setIsVisible(false);
-	};
+	const inputsList = Object.keys(bevelStore.inputsData).map((item) => {
+		const { value, format, label } = bevelStore.inputsData[item];
+		return (
+			<InputDataAngle
+				key={label}
+				label={label}
+				format={format}
+				value={value}
+				changeValue={(e) => bevelStore.setInputsData(e, item)}
+			/>
+		);
+	});
 
 	return (
 		<div className="wrapper-content">
@@ -67,23 +54,21 @@ function AngleCalculation() {
 					<div className={styles.imageWrapper}>
 						<img src={fragmentImg} alt="эскиз" />
 						<Text mark className="dimension dimension-d1">
-							&#8709; {diametrOne}
+							&#8709; {outsideD.value}
 						</Text>
 						<Text mark className="dimension dimension-d2">
-							&#8709; {diametrTwo}
+							&#8709; {innersideD.value}
 						</Text>
 						<Text mark className="dimension dimension-angle">
-							{angle}&#176;
+							{angle.value}&#176;
 						</Text>
-						<Col span={isVisible ? 4 : 0} className="dimension dimension-bevel">
-							<Text mark>L = {bevel}</Text>
+						<Col span={4} className="dimension dimension-bevel">
+							<Text mark>L = {bevelStore.calculateBevel}</Text>
 						</Col>
 					</div>
 				</Col>
 				<Col sm={{ span: 9, order: 2 }} xs={{ span: 24, order: 1 }} style={{ marginBottom: '25px' }}>
-					<InputDataAngle label="d1" format=" мм" value={diametrOne} changeValue={(e) => setDiametrOne(e)} />
-					<InputDataAngle label="d2" format=" мм" value={diametrTwo} changeValue={(e) => setDiametrTwo(e)} />
-					<InputDataAngle label="α" format="°" value={angle} changeValue={(e) => setAngle(e)} />
+					{inputsList}
 				</Col>
 			</Row>
 
@@ -91,18 +76,18 @@ function AngleCalculation() {
 
 			<Row gutter={16} justify="end">
 				<Col>
-					<Button block onClick={handleButtonClear}>
+					<Button block onClick={() => bevelStore.clearInputsData()}>
 						Очистить
 					</Button>
 				</Col>
-				<Col>
-					<Button type="primary" block onClick={handleButtonBevel}>
+				{/* <Col>
+					<Button type="primary" block onClick={null}>
 						Рассчитать фаску
 					</Button>
-				</Col>
+				</Col> */}
 			</Row>
 		</div>
 	);
 }
 
-export default AngleCalculation;
+export default withStore(AngleCalculation);

@@ -1,7 +1,8 @@
 {
 	"compilerOptions": {
 		"jsx": "react",
-		"checkJs": true,
+		"checkJs": false,
+		"target": "es6",
 		"baseUrl": "src"
 	},
 	"include": ["src/**/*"]
