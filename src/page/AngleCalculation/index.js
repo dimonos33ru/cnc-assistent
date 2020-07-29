@@ -1,74 +1,62 @@
 import React from 'react';
 import './AngleCalcuation.css';
 import styles from './AngleCalcuation.module.css';
-import fragmentImg from './fragment.png';
-import { Typography, Row, InputNumber, Col, Button, Divider } from 'antd';
+import fragmentImg from './fragment1.png';
+import { Typography, Row, InputNumber, Col, Button, Radio, Divider } from 'antd';
 
 import { useStores } from 'lib/hooks';
 import { withStore } from 'lib/hoc';
 
-const { Text, Title } = Typography;
-
-const InputDataAngle = (props) => {
-	return (
-		<div className={styles.inputWrapp}>
-			<Text strong>{props.label}:</Text>
-			<InputNumber
-				value={props.value}
-				onChange={props.changeValue}
-				onClick={(e) => e.target.select()}
-				formatter={(value) => `${value}${props.format}`}
-				parser={(value) => value.replace(`${props.format}`, '')}
-				min={0}
-				className={styles.input}
-			/>
-		</div>
-	);
-};
-
 function AngleCalculation() {
 	const { bevelStore } = useStores();
-	const {
-		inputsData: { outsideD, innersideD, angle },
-	} = bevelStore;
 
-	const inputsList = Object.keys(bevelStore.inputsData).map((item) => {
-		const { value, format, label } = bevelStore.inputsData[item];
+	function inputOnChange(e, name) {
+		bevelStore.setInputsData(e, name);
+	}
+
+	const dimensions = Object.keys(bevelStore.partParameters).map((item) => {
+		const { name, value, type, validation } = bevelStore.partParameters[item];
+
+		let disable = false;
+		// if (bevelStore.searchSide === 1) {
+		// 	disable = name === 'legB' || name === 'angleA';
+		// } else if (bevelStore.searchSide === 2) {
+		// 	disable = type === 'diameter' || name === 'angleB';
+		// }
+
 		return (
-			<InputDataAngle
-				key={label}
-				label={label}
-				format={format}
-				value={value}
-				changeValue={(e) => bevelStore.setInputsData(e, item)}
-			/>
+			<div key={name} className={`dimension-${name}`}>
+				{type === 'diameter' ? <span className={`label-${type}`}>&#8960;</span> : null}
+				<InputNumber
+					size="small"
+					value={value}
+					min={0}
+					max={validation.maxValue}
+					type="number"
+					disabled={disable}
+					// onChange={(e) => bevelStore.setInputsData(e, item)}
+					onChange={(e) => inputOnChange(e, item)}
+				/>
+				{type === 'angle' ? <span className={`label-${type}`}>&#176;</span> : null}
+			</div>
 		);
 	});
 
 	return (
 		<div className="wrapper-content">
-			<Title level={3}>Введите параметры детали</Title>
+			<Typography.Title level={3}>Введите параметры детали</Typography.Title>
 
-			<Row align="middle" className={styles.baseContent}>
-				<Col sm={{ span: 15, order: 1 }} xs={{ span: 24, order: 2 }}>
+			<Radio.Group onChange={(e) => bevelStore.setSearchSide(e.target.value)} value={bevelStore.searchSide}>
+				<Radio value={1}>A</Radio>
+				<Radio value={2}>B</Radio>
+			</Radio.Group>
+
+			<Row justify="center" align="middle" className={styles.baseContent}>
+				<Col>
 					<div className={styles.imageWrapper}>
 						<img src={fragmentImg} alt="эскиз" />
-						<Text mark className="dimension dimension-d1">
-							&#8709; {outsideD.value}
-						</Text>
-						<Text mark className="dimension dimension-d2">
-							&#8709; {innersideD.value}
-						</Text>
-						<Text mark className="dimension dimension-angle">
-							{angle.value}&#176;
-						</Text>
-						<Col span={4} className="dimension dimension-bevel">
-							<Text mark>L = {bevelStore.calculateBevel}</Text>
-						</Col>
+						<div>{dimensions}</div>
 					</div>
-				</Col>
-				<Col sm={{ span: 9, order: 2 }} xs={{ span: 24, order: 1 }} style={{ marginBottom: '25px' }}>
-					{inputsList}
 				</Col>
 			</Row>
 
@@ -76,15 +64,13 @@ function AngleCalculation() {
 
 			<Row gutter={16} justify="end">
 				<Col>
-					<Button block onClick={() => bevelStore.clearInputsData()}>
-						Очистить
-					</Button>
+					<Button onClick={() => bevelStore.clearInputsData()}>Очистить</Button>
 				</Col>
-				{/* <Col>
-					<Button type="primary" block onClick={null}>
+				<Col>
+					<Button type="primary" onClick={() => bevelStore.calculateBevel()}>
 						Рассчитать фаску
 					</Button>
-				</Col> */}
+				</Col>
 			</Row>
 		</div>
 	);

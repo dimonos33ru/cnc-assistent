@@ -34,7 +34,7 @@ function MainLayout(props) {
 				<Header className="header">
 					{isCollapse ? <MenuOutlined className="trigger" onClick={toggleMenuDrawer} /> : <Logo />}
 					<Typography.Title level={3} className="header-name">
-						Cnc Assistent
+						ЧПУ Ассистент
 					</Typography.Title>
 				</Header>
 				<Layout>

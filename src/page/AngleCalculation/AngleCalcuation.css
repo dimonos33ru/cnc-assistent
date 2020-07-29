@@ -1,32 +1,31 @@
-/* .wrapper-content {
-	min-height: 100%;
-	display: flex;
-	flex-direction: column;
-}
-
-.wrapper-content > *:nth-child(1) {
-	flex: 0 0 auto;
-}
-
-.wrapper-content > *:nth-child(n + 2) {
-	flex: auto;
-} */
-
-.dimension {
+[class|='dimension'] {
 	position: absolute;
 }
-.dimension-d1 {
-	top: -25px;
-	left: 25%;
+[class|='dimension'] .ant-input-number {
+	max-width: 60px;
 }
-.dimension-d2 {
-	bottom: 40px;
-	right: -10px;
+
+.dimension-outside {
+	top: 85px;
+	right: 5px;
 }
-.dimension-angle {
-	bottom: 100px;
-	right: 34px;
-	transform: rotate(-20deg);
+.dimension-innerside {
+	bottom: 148px;
+	right: 5px;
+}
+.dimension-angleA {
+	top: 85px;
+	right: 180px;
+}
+.dimension-angleB {
+	top: 119px;
+	right: 180px;
+	/* transform: rotate(-20deg); */
+}
+.dimension-legB {
+	top: -4px;
+	right: 230px;
+	/* transform: rotate(-20deg); */
 }
 
 .dimension-bevel {
@@ -34,5 +33,5 @@
 	right: 25%;
 }
 .dimension-bevel mark {
-	background: lime;
+	/* background: lime; */
 }

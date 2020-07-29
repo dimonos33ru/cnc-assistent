@@ -4,8 +4,8 @@
 
 .imageWrapper {
 	position: relative;
-	max-width: 260px;
-	padding-right: 20px;
+	max-width: 450px;
+	/* padding-right: 20px; */
 }
 
 .input {
@@ -23,8 +23,8 @@
 	flex: 0 0 20px;
 }
 
-@media (max-width: 576px) {
+/* @media (max-width: 576px) {
 	.baseContent {
 		padding-top: 0;
 	}
-}
+} */
