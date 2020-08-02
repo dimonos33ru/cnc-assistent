@@ -14,26 +14,28 @@ function AngleCalculation() {
 		bevelStore.setInputsData(e, name);
 	}
 
+	function buttonClickCalculate() {
+		bevelStore.equilibrationAngle();
+		bevelStore.calculateBevel();
+	}
+
 	const dimensions = Object.keys(bevelStore.partParameters).map((item) => {
 		const { name, value, type, validation } = bevelStore.partParameters[item];
 
-		let disable = false;
-		// if (bevelStore.searchSide === 1) {
-		// 	disable = name === 'legB' || name === 'angleA';
-		// } else if (bevelStore.searchSide === 2) {
-		// 	disable = type === 'diameter' || name === 'angleB';
-		// }
+		let cls = bevelStore.searchSide === 1 && type === 'leg' ? 'unknown-side' : '';
+		const maxVal = validation ? validation.maxValue : 100;
 
 		return (
 			<div key={name} className={`dimension-${name}`}>
 				{type === 'diameter' ? <span className={`label-${type}`}>&#8960;</span> : null}
 				<InputNumber
+					className={cls}
 					size="small"
 					value={value}
 					min={0}
-					max={validation.maxValue}
+					max={maxVal}
 					type="number"
-					disabled={disable}
+					// disabled={disable}
 					// onChange={(e) => bevelStore.setInputsData(e, item)}
 					onChange={(e) => inputOnChange(e, item)}
 				/>
@@ -67,7 +69,7 @@ function AngleCalculation() {
 					<Button onClick={() => bevelStore.clearInputsData()}>Очистить</Button>
 				</Col>
 				<Col>
-					<Button type="primary" onClick={() => bevelStore.calculateBevel()}>
+					<Button type="primary" onClick={buttonClickCalculate}>
 						Рассчитать фаску
 					</Button>
 				</Col>

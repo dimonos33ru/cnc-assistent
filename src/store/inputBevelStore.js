@@ -32,13 +32,27 @@ export class BevelStore {
 		for (const key in this.partParameters) {
 			const input = this.partParameters[key];
 			input.value = 0;
-			// if (key.includes('angle')) input.validation.maxValue = 90;
 		}
 	}
 
 	// @computed
 
 	// user function
+	/* Уравновешивание градусов */
+	equilibrationAngle() {
+		const { angleA, angleB } = this.partParameters;
+
+		if (angleA.value !== 0 || angleB.value !== 0) {
+			if (angleB.value !== 0) angleA.value = 90 - angleB.value;
+			if (angleA.value !== 0) angleB.value = 90 - angleA.value;
+		}
+	}
+
+	checkParametr(type, value) {
+		if (type === 'diameter') {
+		}
+	}
+
 	getMaxValueAngle(name) {
 		const angleA = this.partParameters.angleA;
 		const angleB = this.partParameters.angleB;

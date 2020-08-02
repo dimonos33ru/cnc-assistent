@@ -6,31 +6,35 @@
 }
 
 .dimension-outside {
-	top: 85px;
-	right: 5px;
+	top: 20%;
+	right: 0%;
 }
 .dimension-innerside {
-	bottom: 148px;
-	right: 5px;
+	top: 57%;
+	right: 0%;
 }
 .dimension-angleA {
-	top: 85px;
-	right: 180px;
+	top: 20%;
+	right: 38%;
 }
 .dimension-angleB {
-	top: 119px;
-	right: 180px;
+	top: 29%;
+	right: 38%;
 	/* transform: rotate(-20deg); */
 }
 .dimension-legB {
-	top: -4px;
-	right: 230px;
+	top: -2%;
+	right: 50%;
 	/* transform: rotate(-20deg); */
 }
 
 .dimension-bevel {
 	top: -25px;
 	right: 25%;
+}
+
+.unknown-side {
+	border-color: fuchsia;
 }
 .dimension-bevel mark {
 	/* background: lime; */

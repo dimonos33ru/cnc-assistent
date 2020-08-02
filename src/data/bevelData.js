@@ -5,35 +5,35 @@ function bevelData() {
 				name: 'outside',
 				type: 'diameter',
 			},
-			{ minValue: 0, maxValue: 1000 }
+			{ minValue: 1, maxValue: 1000, required: true }
 		),
 		innersideD: createBevelData(
 			{
 				name: 'innerside',
 				type: 'diameter',
 			},
-			{ minValue: 0, maxValue: 1000 }
+			{ minValue: 0, maxValue: 1000, required: true }
 		),
 		angleA: createBevelData(
 			{
 				name: 'angleA',
 				type: 'angle',
 			},
-			{ minValue: 0, maxValue: 90 }
+			{ minValue: 0, maxValue: 90, required: true }
 		),
 		angleB: createBevelData(
 			{
 				name: 'angleB',
 				type: 'angle',
 			},
-			{ minValue: 0, maxValue: 90 }
+			{ minValue: 0, maxValue: 90, required: true }
 		),
 		legB: createBevelData(
 			{
 				name: 'legB',
 				type: 'leg',
-			},
-			{ minValue: 0, maxValue: 1000 }
+			}
+			// { minValue: 0, maxValue: 1000, required: false }
 		),
 	};
 }
