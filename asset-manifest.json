@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/cnc-assistent/static/css/main.f92c04db.chunk.css",
-    "main.js": "/cnc-assistent/static/js/main.6149b5d6.chunk.js",
-    "main.js.map": "/cnc-assistent/static/js/main.6149b5d6.chunk.js.map",
+    "main.css": "/cnc-assistent/static/css/main.9b0fb228.chunk.css",
+    "main.js": "/cnc-assistent/static/js/main.26e013ad.chunk.js",
+    "main.js.map": "/cnc-assistent/static/js/main.26e013ad.chunk.js.map",
     "runtime-main.js": "/cnc-assistent/static/js/runtime-main.01758b1d.js",
     "runtime-main.js.map": "/cnc-assistent/static/js/runtime-main.01758b1d.js.map",
     "static/css/2.c8fdb744.chunk.css": "/cnc-assistent/static/css/2.c8fdb744.chunk.css",
-    "static/js/2.2ce77b66.chunk.js": "/cnc-assistent/static/js/2.2ce77b66.chunk.js",
-    "static/js/2.2ce77b66.chunk.js.map": "/cnc-assistent/static/js/2.2ce77b66.chunk.js.map",
+    "static/js/2.e8f32e2c.chunk.js": "/cnc-assistent/static/js/2.e8f32e2c.chunk.js",
+    "static/js/2.e8f32e2c.chunk.js.map": "/cnc-assistent/static/js/2.e8f32e2c.chunk.js.map",
     "index.html": "/cnc-assistent/index.html",
-    "precache-manifest.8d28f25bdf8491902cca50ceb3913b32.js": "/cnc-assistent/precache-manifest.8d28f25bdf8491902cca50ceb3913b32.js",
+    "precache-manifest.436820b19468ae2fa9187e78dda68f16.js": "/cnc-assistent/precache-manifest.436820b19468ae2fa9187e78dda68f16.js",
     "service-worker.js": "/cnc-assistent/service-worker.js",
     "static/css/2.c8fdb744.chunk.css.map": "/cnc-assistent/static/css/2.c8fdb744.chunk.css.map",
-    "static/css/main.f92c04db.chunk.css.map": "/cnc-assistent/static/css/main.f92c04db.chunk.css.map",
-    "static/js/2.2ce77b66.chunk.js.LICENSE.txt": "/cnc-assistent/static/js/2.2ce77b66.chunk.js.LICENSE.txt",
+    "static/css/main.9b0fb228.chunk.css.map": "/cnc-assistent/static/css/main.9b0fb228.chunk.css.map",
+    "static/js/2.e8f32e2c.chunk.js.LICENSE.txt": "/cnc-assistent/static/js/2.e8f32e2c.chunk.js.LICENSE.txt",
     "static/media/fragment1.png": "/cnc-assistent/static/media/fragment1.f20739fd.png"
   },
   "entrypoints": [
     "static/js/runtime-main.01758b1d.js",
     "static/css/2.c8fdb744.chunk.css",
-    "static/js/2.2ce77b66.chunk.js",
-    "static/css/main.f92c04db.chunk.css",
-    "static/js/main.6149b5d6.chunk.js"
+    "static/js/2.e8f32e2c.chunk.js",
+    "static/css/main.9b0fb228.chunk.css",
+    "static/js/main.26e013ad.chunk.js"
   ]
 }

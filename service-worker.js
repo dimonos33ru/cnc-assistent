@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/cnc-assistent/precache-manifest.8d28f25bdf8491902cca50ceb3913b32.js"
+  "/cnc-assistent/precache-manifest.436820b19468ae2fa9187e78dda68f16.js"
 );
 
 self.addEventListener('message', (event) => {
